@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入Vue -->
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器 -->
+		<div id="root">
+			<h2>今天天气很{{info}}</h2>
+		<!-- <button @click="isHot = !isHot">切换天气</button> -->
+			<button @click="change">切换天气</button>
+			<hr />
+			<h3>a的值是：{{numbers.a}}</h3>
+			<button @click="numbers.a++">点我让a+1</button><br />
+			<h3>b的值是：{{numbers.b}}</h3>
+			<button @click="numbers.b++">点我让b+1</button><br />
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+	Vue.config.productionTip = false//关闭启动时的提示
+	
+	
+	const vm = new Vue({
+		el:'#root',
+		data:{
+			isHot:true,
+			numbers:{
+				a:1,
+				b:1,
+			}
+		},
+		computed:{
+			info(){
+				return this.isHot ? '炎热' : '凉爽'
+			}
+		},
+		methods:{
+			change(){
+				this.isHot = !this.isHot
+			}
+		},
+		watch:{//监视
+			isHot:{
+				//isHot被修改时handler函数被调用
+				handler(newValue,oleValue){
+					console.log(newValue,oleValue);
+				}
+			},
+			numbers:{//j监视多级结构中的所有属性的变化
+			deep:true,//开启深度监视
+				handler(){
+					console.log('改变了');
+				}
+			},
+		}
+	})
+	</script>
+</html>

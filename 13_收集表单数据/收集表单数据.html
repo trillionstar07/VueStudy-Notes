@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<form @submit.prevent="demo"> <!-- 阻止提交页面后默认的跳转行为 -->
+				<label for="id">账号：</label>
+				<input type="text" id="id" v-model.trim="userInfo.account"/><br />
+				<label for="pw">密码：</label>
+				<input type="password" id="pw" v-model="userInfo.password"/><br />
+				
+				性别：<label for="man">男</label>
+				<input type="radio" id="man" name="sex" v-model="userInfo.sex" value="man"/><br />
+				
+				<label for="age">年龄：</label>
+				<input type="number" id="age" v-model.number="userInfo.age"/><br />
+				
+				<label for="women">女</label>
+				<input type="radio" id="women" name="sex" v-model="userInfo.sex" value="women"/><br />
+				
+				爱好：
+				学习<input type="checkbox" v-model="userInfo.hobby" value="study"/>
+				打游戏<input type="checkbox" v-model="userInfo.hobby" value="game"/>
+				干饭<input type="checkbox" v-model="userInfo.hobby" value="eat"/><br />
+				
+				所属校区
+				<select v-model="userInfo.city">
+					<option value="">请选择校区</option>
+					<option value="Beijing">北京</option>
+					<option value="Shanghai">上海</option>
+					<option value="Changsha">长沙</option>
+					<option value="Wuhan">武汉</option>
+				</select><br />
+				其它信息：<br />
+				<textarea v-model.lazy="userInfo.other"></textarea>
+				<br />
+				<input type="checkbox" v-model="userInfo.agree"/>阅读并接受<a href="">《用户协议》</a>
+				<br />
+				<button>提交</button>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+	Vue.config.productionTip = false
+	
+	new Vue({
+		el:'#root',
+		data:{
+			userInfo:{//用户信息
+				account:'',
+				password:'',
+				sex:'',
+				age:'',
+				hobby:[],
+				city:'Shanghai',
+				other:'',
+				agree:false
+			}
+		},
+		methods:{
+			demo(){
+				console.log(JSON.stringify(this.userInfo));
+			}
+		}
+	})
+	</script>
+</html>

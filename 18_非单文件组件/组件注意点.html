@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<h1>{{msg}}</h1>
+			<school></school>
+		</div>
+		<script type="text/javascript">
+		//创建组件
+		const school = {
+			template:`
+			<div>
+			<div>学校名称是：{{name}}</div>
+			<div>地址：{{address}}</div>
+			</div>
+			`,
+			data(){
+				return{
+					name:'湖南商务职业技术学院',
+					address:'湖南长沙'
+				}
+			}
+		}
+		//注册组件
+		new Vue({
+			el:'#root',
+			data:{
+				msg:'欢迎学习Vue'
+			},
+			components:{
+				school
+			}
+		})
+		
+		</script>
+	</body>
+</html>

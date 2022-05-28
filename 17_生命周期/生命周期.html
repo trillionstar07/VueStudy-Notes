@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器 -->
+		<div id="root">
+			<h2 :style="{opacity}">欢迎学习Vue</h2>
+			<button @click="stop">点击停止变换</button>
+		</div>
+	</body>
+	<script type="text/javascript">
+	new Vue({
+		el:'#root',
+		data:{
+			opacity:1,
+		},
+		methods:{
+			stop(){
+				clearInterval(this.id)
+			}
+			},
+		mounted(){
+			//Vue完成模板的解析并把真是的DOM元素放入页面之后（完成挂载后）会调用mounted
+		this.id = setInterval(()=>{
+		this.opacity -= 0.01
+		if(this.opacity <= 0)
+		this.opacity = 1
+				},16)
+			}
+	})
+	//外部定时器实现（不推荐）
+	// setInterval(()=>{
+	// 	vm.opacity -= 0.01
+	// 	if(vm.opacity <= 0)
+	// 	vm.opacity = 1
+	// },16)
+	</script>
+</html>

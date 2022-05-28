@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入vue -->
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器 -->
+		<div id="root">
+		姓：<input type="text"  v-model="Fname"/><br />
+		名：<input type="text"  v-model="Lname"/><br />
+		全名：<span>{{fullname()}}</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.config.productionTip = false//关闭Vue启动时的提示
+	
+		const vm = new Vue({
+			el:'#root',
+			data:{
+				Fname:"张",
+				Lname:"三"
+			},
+			methods:{
+				fullname(){
+					return this.Fname.slice(0,3)+this.Lname
+				}
+			}
+		})
+	</script>
+</html>

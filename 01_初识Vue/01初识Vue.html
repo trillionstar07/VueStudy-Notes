@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入Vue -->
+		<script type="text/javascript" src="js/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器 -->
+		<div id="root">
+			<h1>Hello,{{name.toLocaleUpperCase()}}</h1>
+		</div>
+		
+		
+		<script type="text/javascript">
+		Vue.config.productionTip = false//关闭提示
+		
+		//创建一个实例
+		new Vue({
+			el:'#root',
+			//用于指定当前的Vue示例为哪一个元素使用，值通常为CSS选择器
+			data:{
+			//data中用于存储数据，数据供el所制定的容器使用，暂时将值先写成对象，一般要写成函数
+				name:'zhaoxin，js表达式语句'
+				}
+		})
+		</script>
+	</body>
+</html>

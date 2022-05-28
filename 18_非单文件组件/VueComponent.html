@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+			<school></school>
+		</div>
+		
+		<script type="text/javascript">
+		
+		//创建school组件
+		const school = Vue.extend({
+			name:'school',
+			template:`
+			<div>
+			<h3>学校名称：{{name}}</h3>
+			<h3>地址：{{address}}</h3>
+			</div>
+			`,
+			data(){
+				return{
+					name:'湖南商务职业技术学院',
+					address:'湖南长沙'
+				}
+			},
+		})
+		console.log('@',school);
+
+
+
+		new Vue({
+			el:'#root',
+			components:{school}
+		})
+		
+		</script>
+	</body>
+</html>

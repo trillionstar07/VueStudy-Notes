@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入vue -->
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器 -->
+		<div id="root">
+			<h2>学校名称：{{name}}</h2>
+			<h2>学校地址：{{address}}</h2>
+		</div>
+	</body>
+	<script type="text/javascript">
+		Vue.config.productionTip = false//关闭Vue启动时的提示
+		
+		let data = {
+			
+		}
+		const vm = new Vue({
+			el:'#root',
+			data:{
+				name:'zhaoxin',
+				address:'长沙'
+			}
+			})
+	</script>
+</html>

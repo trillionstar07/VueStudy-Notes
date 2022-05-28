@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器 -->
+		<div id="root">
+			<div>{{name}}</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+	/*
+	v-html会解析标签/不安全
+	*/
+	new Vue({
+		el:'#root',
+		data:{
+			name:'赵欣'
+		},
+	})
+	</script>
+</html>

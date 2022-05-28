@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<div id="root">
+		<!-- 	<hello></hello>
+			<hr />
+			<school></school>
+			<hr />
+			<student></student> -->
+			<app></app>
+		</div>
+		
+		<script type="text/javascript">
+		
+		//创建student组件
+		const student = Vue.extend({
+			template:`
+			<div>
+			<h3>学生姓名：{{name}}</h3>
+			<h3>年龄：{{age}}</h3>
+			</div>
+			`,
+			data(){
+				return{
+					name:'赵欣',
+					age:18
+				}
+			}
+		})
+	
+		
+		//创建school组件
+		const school = {
+			template:`
+			<div>
+			<h3>学校名称：{{name}}</h3>
+			<h3>地址：{{address}}</h3>
+			<student></student>
+			</div>
+			`,
+			data(){
+				return{
+					name:'湖南商务职业技术学院',
+					address:'湖南长沙'
+				}
+			},
+			//注册组件（局部)
+			components:{
+				student
+			}
+		}
+		//创建hello组件
+		const hello = Vue.extend({
+			template:`
+			<h1>{{msg}}</h1>
+			`,
+			data(){
+				return{
+					msg:'欢迎学习'
+				}
+			}
+		})
+		//创建app组件
+		const app = Vue.extend({
+			template:`
+			<div>
+			<hello></hello>
+			<school></school>
+			</div>
+			`,
+			components:{
+				school,
+				hello
+			}
+		})
+		
+
+		new Vue({
+			el:'#root',
+			//局部注册组件（局部）
+			components:{app}
+		})
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入Vue -->
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备好一个容器 -->
+		<div id="root">
+			<h2>学校名称：{{name}}</h2>
+			<h2>学校地址：{{address}}</h2>
+		</div>
+	<script type="text/javascript">
+	Vue.config.productionTip = false
+	
+	const vm = new Vue({
+		el:'#root',
+		data:{
+			name:'湖南商务职业技术学院',
+			address:'长沙',
+			}
+		})
+	</script>
+	</body>
+	
+</html>
+

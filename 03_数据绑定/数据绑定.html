@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入vue库 -->
+		<script type="text/javascript" src="../Vue库/vue.js"></script>
+	</head>
+	<body>
+		<!-- 准备一个容器 -->
+		<div id="root">
+			单向数据绑定：<input type="text" v-bind:value="name" />
+			<br />
+			双向数据绑定：<input type="text" v-model:value="name" />
+			<br />
+			<!-- 
+			如下用法是错误的，v-model只能应用在表单类（输入类）元素上,（都有value值）
+			<h1 v-model:x="name">你好</h1> 
+			-->
+		</div>
+		
+		
+		<script type="text/javascript">
+		Vue.config.productionTip = false//关闭提示
+		new Vue({
+			el:'#root',
+			data:{
+				name:'zhaoxin'
+			}
+		})
+		</script>
+	</body>
+</html>
